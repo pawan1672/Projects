@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 15px 38px;
+            font-size: 17px;
+            padding: 8px;
+        }
+
+        form{
+            text-align: center;
+        }
+
+        table,tr,th,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding:10px;
+            border-spacing: 5px;
+            margin: auto;
+        }
+
+        th{
+            background-color:rgb(123, 255, 8);
+        }
+
+        td{
+            background-color:rgb(255, 255, 232);
+        }
+
+        #fare{
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color:coral;
+            margin: auto;
+            margin-top: 10px;
+            padding: 15px;
+            width: 30%;
+        }
+
+        input[type="submit"]{
+            background-color:rgb(68, 159, 255);
+            border: none;
+            margin: 30px;
+            padding: 12px 20px;
+            border-radius: 30px 30px 30px 30px;
+            cursor: pointer;
+            width: 10%;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(70, 132, 255);
+        }
+        </style>
+    <title>DATA CENTER</title>
+    {% load static %}
+    <link rel="parking icon" type="image/png" href="{% static 'images/ICON/apple-touch-icon.png' %}">
+</head>
+<body>
+    <div>
+        <form action="/options" method="post"> {% csrf_token %}
+            <table>
+                <tr>
+                    <th>TICKET_ID</th>
+                    <th>CUSTOMER_NAME</th>
+                    <th>VEHICLE_REGNO</th>
+                    <th>CHECKIN-TIME</th>
+                    <th>CHECKOUT-TIME</th>
+                    <th>CHECH-OUT DATE</th>
+                    <th>FARE</th>
+                </tr>
+                {% for i in data %}
+                <tr>                    
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td>{{i.2}}</td>
+                    <td>{{i.3}}</td>
+                    <td>{{i.4}}</td>
+                    <td>{{i.5}}</td>
+                    <td>{{i.6}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div id="fare">
+                <h3 id = 'h3'><b>TOTAL_FARE = </b> {{fare}} </h3>
+            </div>          
+            <input type="submit" value="BACK">
+        </form>
+    </div>
+</body>
+</html>

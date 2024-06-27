@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %} </title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 15px 38px;
+            font-size: 17px;
+            padding: 8px;
+        }
+
+        .main_heading{
+            text-align: center;
+            background-color: orange;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+
+        .container{
+            background-color: #f2f2f2;
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+        }
+
+        .inner_container{
+            margin-left: 450px;
+            margin-top: 40px;
+        }
+        
+        p,h1,h4{
+            margin: auto;
+            padding : 20px;
+        }
+
+        h5{
+            color: red;
+            animation-name: colorchange;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes colorchange{
+            0% {color:rgb(0, 0, 0);}
+            10% {color:rgb(86, 120, 131);}
+            50% {color: rgb(255, 0, 0);}
+        }
+       
+        .img_div{
+            float: left;
+            padding: 20px;
+            margin-top: 100px;
+            margin-left: 30px;
+        }
+
+        input[type="submit"]{
+            background-color:rgb(0, 255, 0);
+            margin-top: 30px;
+            margin-left: 440px;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 20%;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(143, 243, 116);
+        }
+    </style>
+    {% load static %}
+    <link rel="parking icon" type="image/png" href="{% static 'images/ICON/apple-touch-icon.png' %}">
+</head>
+<body>
+    <form action="/next", method="post"> {% csrf_token %}
+        <h1 class="main_heading">Parking Information</h1>
+        <div class = 'container'>
+            <div class="img_div">
+                {% block img %} {% endblock %}
+            </div>
+            <div class="inner_container">
+                <h1><span> {% block name %} {% endblock %} </span></h1>
+                <h4>Vehicle no. : <span> {% block bike_no %} {% endblock %} </span></h4>
+                <p class="one"><b>Time : {% block time %} {% endblock %} <span id="time"></span></b></p>
+                <p class="two"><b>Parking Slot No : {{slot_no}}</b></p>
+                <p class="tre"><b>Floor Number : {{floor}}</b></p>
+                <p><b>SECRET_CODE : {{key}}</b></p>
+                <h5><b>###### note this code required while checking-out ######</b></h5>  
+            </div>
+            <input type="submit" value="Confirm">
+        </div>
+    </form>
+</body>
+</html>

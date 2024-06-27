@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 40px 380px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        .container{
+            background-color: #f2f2f2;
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            text-align: center;
+            border-radius: 0px 0px 5px 5px;
+        }
+        
+        input[type="text"],  
+        input[type="password"]{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+        }  
+
+        p{
+           text-align: left;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:rgb(104, 144, 244);
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(64, 111, 254);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px 10px 10px 10px;
+            cursor: pointer;
+            width: 20%;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(38, 92, 255);
+        }
+        
+    </style>
+    {% load static %}
+    <link rel="parking icon" type="image/png" href="{% static 'images/ICON/apple-touch-icon.png' %}">
+    <title>Parking Management System</title>
+</head>
+
+<body>
+    <h1 class="main_heading">ADMIN LOGIN</h1>
+    <div class="container">
+        <form action="/options", method="post"> {% csrf_token %}
+            <p>USERNAME : 
+                <input type="text" name="user" placeholder="Enter username" autocomplete="off" required maxlength="10" ></p>   
+            <p>PASSWORD : 
+                <input type="password" name="password" placeholder="Enter password" autocomplete="off" required maxlength="10" ></p>
+            <input type="submit" value="LOGIN">
+        </form>
+    </div>
+    <script>
+      if('{{flag}}' == 1)
+      {
+        alert(" Invalid username or password ")
+      }
+    </script>
+</body>
+
+</html>

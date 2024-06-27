@@ -1,0 +1,13 @@
+{% extends 'basic/base.html' %}
+{% load static %}
+
+
+{% block title %} Parking Information {% endblock %}
+
+{% block img %} <img src="{% static 'images/new_car.jpeg' %}" alt="No image found" width="350" height="290"> {% endblock %}
+
+{% block name %} {{cus_name}} {% endblock %}
+
+{% block bike_no %} {{num}} {% endblock %}
+
+{% block time %} {{Time}} {% endblock %} 

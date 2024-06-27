@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         *{
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 15px 38px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        #p{
+            background-color:rgb(194, 255, 187);
+            color: black;
+            width: 500px;
+            height: 440px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 20px;
+            border: 2px solid black;
+        }
+
+        .inner{
+            padding: 10px;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        table,tr,th,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding:17px;
+            border-spacing: 5px;
+        }
+        
+        th{
+            background-color:antiquewhite;
+        }
+
+        td{
+            background-color:white;
+        }
+
+        h1{
+            padding: 10px;
+            border: 2px solid;
+            background-color:cornflowerblue;
+            border-radius: 20px;
+        }
+
+        h5{
+            color: red;
+            animation-name: colorchange;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes colorchange{
+            0% {color:gold;}
+            10% {color:deepskyblue;}
+            50% {color: black;}
+        }
+
+        input[type="submit"]{
+            background-color:rgb(252, 175, 76);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px 20px 5px 20px;
+            cursor: pointer;
+            width: 20%;
+        }
+        input[type="submit"]:hover{
+            background-color:coral;
+        }
+    </style>
+    {% load static %}
+    <link rel="parking icon" type="image/png" href="{% static 'images/ICON/apple-touch-icon.png' %}">
+    <title>SUCCESS</title>
+</head>
+<body>
+    <form action="/",method='post'>
+        <div id="p">
+            <h1>Charges</h1>
+            <div class="inner">
+                <table>
+                    <thread>
+                        {% block head %} {% endblock %}
+                        <th><b>Fare / hr</b></th>
+                    </thread>
+                    <tbody>
+                        <tr>
+                            <th><b> < 3hrs </b></th>
+                            {% block row_1 %} {% endblock %}
+                        </tr>
+                        <tr>
+                            <th><b> > 3hrs</b></th>
+                            {% block row_2 %} {% endblock %}
+                        </tr>
+                    </tbody>
+                </table>
+                <h5><b>###### Convinence fee Rs.20/- ######</b></h5>              
+                <input type="submit" value="Done">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

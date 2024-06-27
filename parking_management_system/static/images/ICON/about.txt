@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Fjord One
+- Font Author: http://scripts.sil.org/OFL
+- Font Source: http://fonts.gstatic.com/s/fjordone/v21/zOL-4pbEnKBY_9S1jNKr6e5As-FeiQ.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
